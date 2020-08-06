@@ -6,6 +6,8 @@ const token = "NzQwOTUwODU4MzY3MjM4MTc0.XyweQg.y29Rpjmk14tzRioqvZB7TFRjhuQ";
 bot.on("ready", ()=>{
     console.log("The bot is online");
     bot.user.setActivity("Mansi's Port", { type: 'WATCHING'});
+    const botNotification = bot.channels.cache.get("740991793650335883");
+    botNotification.send(`I'm Online`)
 
 });
 
