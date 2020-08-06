@@ -19,6 +19,7 @@ bot.on("guildMemberAdd", member=>{
 
 bot.on("message", message=>{
     const WelcomeChannelId = message.guild.channels.cache.get("740949661451288722");
+    const ServerLogTest = message.guild.channels.cache.get("741006637099384922");
     //Command implementation
     let args = message.content.substring(prefix.length).split(" ")
     switch(args[0]){
@@ -32,6 +33,7 @@ bot.on("message", message=>{
         if(message.member.hasPermission("MANAGE_NICKNAMES")){
             person.roles.add(ShipmateRole);
             message.react("👍");
+            ServerLogTest.send(`${message.author} has permitted ${person}`);
         }else{
             message.react("👎");
         }
