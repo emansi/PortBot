@@ -1,0 +1,29 @@
+{
+  "name": "portbot",
+  "version": "1.0.0",
+  "description": "it's a bot for port in a storm",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "author": "Mansi",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emansi/PortBot.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/emansi/PortBot/issues" 
+  },
+  "homepage": "https://github.com/emansi/PortBot#readme",
+  "description": ""
+
+
+  
+}
