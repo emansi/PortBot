@@ -9,6 +9,11 @@ bot.on("ready", ()=>{
 
 });
 
+bot.on("guildMemberAdd", member=>{
+    const WelcomeChannelId = member.guild.channels.cache.get("740949661451288722");
+    WelcomeChannelId.send(`Welcome Aboard Sailor ${member.displayName}!`);
+})
+
 
 
 
