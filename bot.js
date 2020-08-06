@@ -5,7 +5,7 @@ const token = "NzQwOTUwODU4MzY3MjM4MTc0.XyweQg.y29Rpjmk14tzRioqvZB7TFRjhuQ";
 
 bot.on("ready", ()=>{
     console.log("The bot is online");
-    bot.user.setActivity("Mani's Port", { type: 'WATCHING'});
+    bot.user.setActivity("Mansi's Port", { type: 'WATCHING'});
 
 });
 
