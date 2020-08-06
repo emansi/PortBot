@@ -29,8 +29,12 @@ bot.on("message", message=>{
             return;
         }
         var ShipmateRole = person.guild.roles.cache.get("738872066866020474");
-        person.roles.add(ShipmateRole);
-        message.react("👍");
+        if(message.member.hasPermission("MANAGE_NICKNAMES")){
+            person.roles.add(ShipmateRole);
+            message.react("👍");
+        }else{
+            message.react("👎");
+        }
         break;
 
     }
