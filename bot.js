@@ -48,7 +48,7 @@ bot.on("message", message=>{
 bot.on("message", message=>{
     const letsTalkChannel = message.guild.channels.cache.get("738709494493610046");
     if (message.channel == letsTalkChannel)
-    if (message.content === ':joy:') {
+    if (message.content === '😂') {
         console.log('Is it running');
         message.channel.send('||beef||');
         }
