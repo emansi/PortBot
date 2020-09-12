@@ -17,7 +17,7 @@ bot.on("guildMemberAdd", member=>{
     WelcomeChannelId.send(`Welcome Aboard Sailor! ${member}`);
 })
 
-//testing git hub configuration
+
 
 bot.on("message", message=>{
     const WelcomeChannelId = message.guild.channels.cache.get("740949661451288722");
@@ -43,6 +43,15 @@ bot.on("message", message=>{
 
     }
 })
+
+//automated message
+bot.on("message", message=>{
+    const letsTalkChannel = message.guild.channels.cache.get("738709494493610046");
+    if (message.channel == letsTalkChannel)
+    if (message.content === '😂') {
+        message.channel.send('||beef||');
+        }
+});
 
 
 
