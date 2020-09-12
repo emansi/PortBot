@@ -49,16 +49,16 @@ bot.on("message", message=>{
 
 //automated message
 bot.on("message", message=>{  
-    console.log("I'm in the block");
+    // console.log("I'm in the block");
 
-    const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
-    if (message.channel == LetsTalkChannelId){
+    // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
+   // if (message.channel == LetsTalkChannelId){
     if (message.content.includes('😂')) {
         
         message.channel.send('||beef||');
        
         };
-    };
+   // };
 });
 
 
