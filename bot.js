@@ -53,12 +53,12 @@ bot.on("message", message=>{
 
     const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
     if (message.channel == LetsTalkChannelId){
-    if (message.content.includes(':joy:')) {
-        console.log("I am reading the emoji");
+    if (message.content.includes('😂')) {
+        
         message.channel.send('||beef||');
-        console.log("I am printing the emoji");
-        }
-    }
+       
+        };
+    };
 });
 
 
