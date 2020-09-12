@@ -46,7 +46,7 @@ bot.on("message", message=>{
 
 //automated message
 bot.on("message", message=>{
-    const letsTalkChannel = message.guild.channels.cache.get("738709494493610046");
+    const letsTalkChannel = message.guild.channels.cache.get("738850464778420265");
     if (message.channel == letsTalkChannel)
     if (message.content === ':joy:') {
         message.channel.send('||beef||');
