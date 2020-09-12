@@ -4,6 +4,7 @@ const token = "NzQwOTUwODU4MzY3MjM4MTc0.XyweQg.y29Rpjmk14tzRioqvZB7TFRjhuQ";
 const prefix = "!";
 
 
+
 bot.on("ready", ()=>{
     console.log("The bot is online");
     bot.user.setActivity("Mansi's Port", { type: 'WATCHING'});
@@ -16,6 +17,7 @@ bot.on("guildMemberAdd", member=>{
     const WelcomeChannelId = member.guild.channels.cache.get("740949661451288722");
     WelcomeChannelId.send(`Welcome Aboard Sailor! ${member}`);
 })
+
 
 
 
@@ -44,14 +46,21 @@ bot.on("message", message=>{
     }
 })
 
+
 //automated message
-bot.on("message", message=>{
-    const letsTalkChannel = message.guild.channels.cache.get("738709494493610046");
-    if (message.channel == letsTalkChannel)
-    if (message.content === ':joy:') {
+bot.on("message", message=>{  
+    console.log("I'm in the block");
+
+    const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
+    if (message.channel == LetsTalkChannelId);
+    if (message.content.includes(':joy:')) {
+        console.log("I am reading the emoji");
         message.channel.send('||beef||');
+        console.log("I am printing the emoji");
         }
+    
 });
+
 
 
 
