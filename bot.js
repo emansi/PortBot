@@ -17,6 +17,8 @@ bot.on("guildMemberAdd", member=>{
     WelcomeChannelId.send(`Welcome Aboard Sailor! ${member}`);
 })
 
+//testing git hub configuration
+
 bot.on("message", message=>{
     const WelcomeChannelId = message.guild.channels.cache.get("740949661451288722");
     const ServerLogTest = message.guild.channels.cache.get("741006637099384922");
