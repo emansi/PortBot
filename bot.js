@@ -55,7 +55,7 @@ bot.on("message", message=>{
    // if (message.channel == LetsTalkChannelId){
     if (message.content.includes('😂')) {
         
-        message.channel.send('||beef||');
+        message.channel.send('||scam||');
        
         };
    // };
