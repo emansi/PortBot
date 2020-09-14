@@ -62,8 +62,10 @@ bot.on("message", message => {
 
     };
 
-
-    if (message.content.includes('sad' || 'cry')) {
+    const messageContent = message.content.toLowerCase();
+    var keywords = ["sad","cry"];
+    //if (message.content.includes('sad' || 'cry')) {
+        if (messageContent.includes(keywords)) {
         user = message.author.username;
 
         if (message.author.bot) return;
@@ -78,7 +80,7 @@ bot.on("message", message => {
 });
 
 
-
+//conversations with bot
 bot.on("message", message => {
     var replies = ["Yes", "I'm great!", "Definitely", "maybe", "no", "not at all", "don't bug me"]
     var random = Math.floor(Math.random() * replies.length);
@@ -86,6 +88,8 @@ bot.on("message", message => {
     if (message.content.startsWith('bot') && message.content.endsWith('?')) {
         message.channel.send(replies[random]);
     };
+
+    
 
 });
 
