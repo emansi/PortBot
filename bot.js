@@ -60,17 +60,18 @@ bot.on("message", message => {
 
     };
 
-    //if(message.content.includes('cry' || 'sad')){
-    if (message.content.includes("cry", "CRY", "sad", "SAD")) {
 
+    if (message.content.includes("cry").toLowerCase) {
+
+        console.log("i'm reading");
         if (message.author.bot) return;
         else {
-            message.author.reply("```send Hugs```");
-            //message.channel.send('```' + `${message.author}` + 'send HUGS```');
+            message.author.reply('send Hugs');
+            console.log("all okay");
+            //message.channel.send('' + `${message.author}` + 'send HUGS');
         }
 
     };
-    // };
 });
 
 
