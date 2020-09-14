@@ -46,6 +46,14 @@ bot.on("message", message => {
     }
 })
 
+bot.on("message", message =>{
+    let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
+    let random = Math.floor(Math.random() * 8);
+    if (message.content.startsWith('bot') && message.content.endsWith('?')) {
+        bot.message.send(replies[random]);
+    };
+})
+
 
 //automated message
 bot.on("message", message => {
@@ -71,11 +79,6 @@ bot.on("message", message => {
 
     };
 
-    // let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
-    // let random = Math.floor(Math.random() * 8);
-    // if (message.content.startsWith('bot') && message.content.endsWith('?')) {
-    //     bot.message.channel.send(replies[random]);
-    // };
 
     // };
 });
