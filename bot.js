@@ -54,9 +54,6 @@ bot.on("message", message => {
     // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
     // if (message.channel == LetsTalkChannelId){
 
-
-
-
     if (message.content.includes('😂')) {
 
         message.channel.send('||scam||');
@@ -74,11 +71,11 @@ bot.on("message", message => {
 
     };
 
-    let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
-    let random = Math.floor(Math.random() * 8);
-    if (message.content.startsWith('bot') && message.content.endsWith('?')) {
-        bot.message.channel.send(replies[random]);
-    };
+    // let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
+    // let random = Math.floor(Math.random() * 8);
+    // if (message.content.startsWith('bot') && message.content.endsWith('?')) {
+    //     bot.message.channel.send(replies[random]);
+    // };
 
     // };
 });
