@@ -66,13 +66,14 @@ bot.on("message", message => {
 
             user = message.member;
 
-            console.log("i'm reading");
+            //console.log("i'm reading");
             if (message.author.bot) return;
             else {
                 //message.author.reply('```send Hugs```');           
                 //message.channel.send('```' + `${message.author}` + '.send HUGS```');
-                message.channel.send('```' + user + '.send HUGS```');
-                console.log("all okay");
+                //message.channel.send('```' + user + '.send HUGS```');
+                message.channel.send('```send HUGS```');
+                //console.log("all okay");
             }
     
         };
