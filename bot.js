@@ -59,7 +59,7 @@ bot.on("message", message=>{
        
         };
 
-    if(message.content.includes('cry' || 'sad')){
+    if(message.content.includes(['cry', 'sad', 'pain'])){
 
         message.channel.send('```send HUGS```');
     };
