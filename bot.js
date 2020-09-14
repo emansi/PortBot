@@ -55,11 +55,7 @@ bot.on("message", message => {
     // if (message.channel == LetsTalkChannelId){
 
 
-    let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
-    let random = Math.floor(Math.random() * 8);
-    if(message.content.startsWith('bot') && message.content.endsWith('?')){
-        bot.message.channel.send(replies[random]);
-    };
+
 
     if (message.content.includes('😂')) {
 
@@ -68,17 +64,23 @@ bot.on("message", message => {
     };
 
 
-      if(message.content.includes(['sad' || 'cry'])){
-            user = message.author.username;
+    if (message.content.includes(['sad' || 'cry'])) {
+        user = message.author.username;
 
-            if (message.author.bot) return;
-            else {
-                message.channel.send( '```' + user + '.send("HUGS");```');
-            }
-    
-        };
+        if (message.author.bot) return;
+        else {
+            message.channel.send('```' + user + '.send("HUGS");```');
+        }
 
-        // };
+    };
+
+    let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
+    let random = Math.floor(Math.random() * 8);
+    if (message.content.startsWith('bot') && message.content.endsWith('?')) {
+        bot.message.channel.send(replies[random]);
+    };
+
+    // };
 });
 
 
