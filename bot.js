@@ -49,38 +49,38 @@ bot.on("message", message => {
 
 
 
-// //automated message
-// bot.on("message", message => {
+//automated message
+bot.on("message", message => {
 
-//     // console.log("I'm in the block");
-//     // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
-//     // if (message.channel == LetsTalkChannelId){
+    // console.log("I'm in the block");
+    // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
+    // if (message.channel == LetsTalkChannelId){
 
-//     if (message.content.includes('😂')) {
+    if (message.content.includes('😂')) {
 
-//         message.channel.send('||scam||');
+        message.channel.send('||scam||');
 
-//     };
-
-
-//     if (message.content.includes('sad' || 'cry')) {
-//         user = message.author.username;
-
-//         if (message.author.bot) return;
-//         else {
-//             message.channel.send('```' + user + '.send("HUGS");```');
-//         }
-
-//     };
+    };
 
 
-//     // };
-// });
+    if (message.content.includes('sad' || 'cry')) {
+        user = message.author.username;
+
+        if (message.author.bot) return;
+        else {
+            message.channel.send('```' + user + '.send("HUGS");```');
+        }
+
+    };
+
+
+    // };
+});
 
 
 
 bot.on("message", message => {
-    var replies = ["Yes", "I'm great!", "definitely", "maybe", "no", "not at all", "don't bug me"]
+    var replies = ["Yes", "I'm great!", "Definitely", "maybe", "no", "not at all", "don't bug me"]
     var random = Math.floor(Math.random() * replies.length);
 
     if (message.content.startsWith('bot') && message.content.endsWith('?')) {
