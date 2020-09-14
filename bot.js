@@ -62,15 +62,11 @@ bot.on("message", message => {
 
 
       if(message.content.includes('cry','sad')){
-        //if (message.content.includes(["cry", "CRY", "sad", "SAD"])) {
-            //user = message.member;
             user = message.author.username;
 
-            //console.log("i'm reading");
             if (message.author.bot) return;
             else {
-                message.channel.send( '```' + user + '.send("HUGS")```');
-                console.log("all okay");
+                message.channel.send( '```' + user + '.send("HUGS");```');
             }
     
         };
