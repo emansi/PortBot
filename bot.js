@@ -61,7 +61,7 @@ bot.on("message", message => {
     };
 
 
-    if (message.content.includes("cry").toLowerCase) {
+    if (message.content.includes("cry").toLowerCase()) {
 
         console.log("i'm reading");
         if (message.author.bot) return;
