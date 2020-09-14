@@ -82,7 +82,7 @@ bot.on("message", message => {
 //let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
 bot.on("message", message => {
     var replies = [
-        "Hello there!",
+        "Hello there!", 
         "How are you?",
         "What's up?",
         "Yes",
@@ -98,7 +98,7 @@ bot.on("message", message => {
     var random = Math.floor(Math.random() * replies.length);
     choose = replies[random];
 
-    if (message.content.startsWith('bot') && message.content.endsWith('?')) {
+    if (message.content.startsWith('bot')) {
         //bot.message.send(replies[random]);
         //bot.reply(message, choose)
         bot.message.send(choose);
