@@ -58,6 +58,11 @@ bot.on("message", message=>{
         message.channel.send('||scam||');
        
         };
+
+    if(message.content.includes('cry' || 'sad')){
+
+        message.channel.send(```${message.author}.send HUGS```);
+    }
    // };
 });
 
