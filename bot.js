@@ -60,9 +60,11 @@ bot.on("message", message => {
 
     };
 
-
-      if(message.content.includes('cry' || 'sad')){
+    var array = ['cry', 'sad'];
+      if(message.content.includes(array)){
         //if (message.content.includes(["cry", "CRY", "sad", "SAD"])) {
+
+     
 
             //user = message.member;
             user = message.author.id;
@@ -71,10 +73,10 @@ bot.on("message", message => {
             if (message.author.bot) return;
             else {
                 //message.author.reply('```send Hugs```');           
-                message.channel.send('```' + `${message.author}` + '.send HUGS```');
+                //message.channel.send('```' + `${message.author}` + '.send HUGS```');
                 //message.channel.send('```' + user + '.send HUGS```');
-                //message.channel.send('```send HUGS```');
-                //console.log("all okay");
+                message.channel.send('```send HUGS```');
+                console.log("all okay");
             }
     
         };
