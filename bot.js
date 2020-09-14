@@ -61,7 +61,7 @@ bot.on("message", message => {
     };
 
 
-      if(message.content.includes('cry','sad')){
+      if(message.content.includes(['sad','cry'])){
             user = message.author.username;
 
             if (message.author.bot) return;
