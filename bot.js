@@ -100,7 +100,9 @@ bot.on("message", message => {
 
     if (message.content.startsWith('bot') && message.content.endsWith('?')) {
         //bot.message.send(replies[random]);
-        bot.reply(message, choose)
+        //bot.reply(message, choose)
+        bot.message.send(choose);
+        console.log("ok");
     };
 })
 
