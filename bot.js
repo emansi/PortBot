@@ -65,7 +65,8 @@ bot.on("message", message => {
 
         if (message.author.bot) return;
         else {
-            message.channel.send('```' + `${message.author}` + 'send HUGS```');
+            message.author.reply("```send Hugs```");
+            //message.channel.send('```' + `${message.author}` + 'send HUGS```');
         }
 
     };
