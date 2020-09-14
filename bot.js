@@ -63,9 +63,8 @@ bot.on("message", message => {
     };
 
     const messageContent = message.content.toLowerCase();
-    var keywords = ["sad","cry"];
-    //if (message.content.includes('sad' || 'cry')) {
-        if (messageContent.includes(keywords)) {
+    if (messageContent.includes('sad' || 'cry')) {
+    
         user = message.author.username;
 
         if (message.author.bot) return;
