@@ -63,9 +63,8 @@ bot.on("message", message => {
     };
 
     const messageContent = message.content.toLowerCase();
-    if (messageContent.includes('sad' || 'cry')) {
-    
-        user = message.author.username;
+    if (messageContent.includes(" cry " || "cry " || " cry") || messageContent.includes(" sad " || "sad " || " sad") || messageContent === 'sad') {
+        user = message.member.displayName;
 
         if (message.author.bot) return;
         else {
@@ -74,20 +73,36 @@ bot.on("message", message => {
 
     };
 
+    if (messageContent.includes('send hugs')) {
 
-    // };
+        var person = message.mentions.members.first();
+        if (!person) return message.channel.send('```Hugs For EVERYONE!!```');
+
+        if (person.id === message.author.id) return message.channel.send('```Portbot sends you a hug!```')
+
+        message.channel.send('```Hugs Sent to ' + person.displayName + '```');
+
+    };
+
 });
 
 
 //conversations with bot
 bot.on("message", message => {
-    var replies = ["Yes", "I'm great!", "Definitely", "maybe", "no", "not at all", "don't bug me"]
+    var replies = ["Yes", "I'm great!", "Definitely", "maybe", "no", "not at all", "don't bug me"];
     var random = Math.floor(Math.random() * replies.length);
 
-    if (message.content.startsWith('bot') && message.content.endsWith('?')) {
+    if (message.content.startsWith('port') && message.content.endsWith('?')) {
         message.channel.send(replies[random]);
     };
 
+
+    // var portBotReplies = ["Hey There", "What's up Doc?", "Heyyy", "Hiiii", "Talk to you later"];
+    // var random2 = Math.floor(Math.random() * portBotReplies.length);
+
+    // if(message.content.includes('<@740950858367238174>')){
+    //     message.channel.send(portBotReplies[random2]);
+    // };
     
 
 });
