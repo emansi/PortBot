@@ -61,17 +61,23 @@ bot.on("message", message => {
     };
 
 
-    if (message.content.includes("cry").toLowerCase()) {
+      if(message.content.includes('cry' || 'sad')){
+        //if (message.content.includes(["cry", "CRY", "sad", "SAD"])) {
 
-        console.log("i'm reading");
-        if (message.author.bot) return;
-        else {
-            message.reply('send Hugs');
-            console.log("all okay");
-            //message.channel.send('' + `${message.author}` + 'send HUGS');
-        }
+            user = message.member;
 
-    };
+            console.log("i'm reading");
+            if (message.author.bot) return;
+            else {
+                //message.author.reply('```send Hugs```');           
+                //message.channel.send('```' + `${message.author}` + '.send HUGS```');
+                message.channel.send('```' + user + '.send HUGS```');
+                console.log("all okay");
+            }
+    
+        };
+
+        // };
 });
 
 
