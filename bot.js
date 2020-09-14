@@ -69,10 +69,7 @@ bot.on("message", message => {
             //console.log("i'm reading");
             if (message.author.bot) return;
             else {
-                //message.author.reply('```send Hugs```');           
-                //message.channel.send('```' + `${message.author}` + '.send HUGS```');
-                //message.channel.send('```' + user + '.send HUGS```');
-                message.channel.send( '```' + user + '.send HUGS```');
+                message.channel.send( '```' + user + '.send("HUGS")```');
                 console.log("all okay");
             }
     
