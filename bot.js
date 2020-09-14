@@ -85,7 +85,7 @@ bot.on("message", message => {
     };
 
     //conversations with port bot
-    var replies = ["Yes", "I'm great!", "Definitely", "maybe", "no", "not at all", "don't bug me"];
+    var replies = ["Yes", "Definitely", "maybe", "no", "not at all", "don't bug me"];
     var random = Math.floor(Math.random() * replies.length);
 
     if (messageContent.startsWith('port') && message.content.endsWith('?')) {
