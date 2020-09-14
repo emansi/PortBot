@@ -84,29 +84,22 @@ bot.on("message", message => {
 
     };
 
-});
-
-
-//conversations with bot
-bot.on("message", message => {
+    //conversations with port bot
     var replies = ["Yes", "I'm great!", "Definitely", "maybe", "no", "not at all", "don't bug me"];
     var random = Math.floor(Math.random() * replies.length);
 
-    if (message.content.startsWith('port') && message.content.endsWith('?')) {
+    if (messageContent.startsWith('port') && message.content.endsWith('?')) {
         message.channel.send(replies[random]);
     };
 
+    var portBotReplies = ["Hey There", "What's up Doc?", "Heyyy", "Hiiii", "Talk to you later"];
+    var random2 = Math.floor(Math.random() * portBotReplies.length);
 
-    // var portBotReplies = ["Hey There", "What's up Doc?", "Heyyy", "Hiiii", "Talk to you later"];
-    // var random2 = Math.floor(Math.random() * portBotReplies.length);
-
-    // if(message.content.includes('<@740950858367238174>')){
-    //     message.channel.send(portBotReplies[random2]);
-    // };
-    
+    if(messageContent.includes('<@!740950858367238174>')){
+        message.channel.send(portBotReplies[random2]);
+    };
 
 });
-
 
 
 
