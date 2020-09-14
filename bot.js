@@ -63,7 +63,7 @@ bot.on("message", message => {
     };
 
 
-    if (message.content.includes(['sad' || 'cry'])) {
+    if (message.content.includes('sad' || 'cry' )) {
         user = message.author.username;
 
         if (message.author.bot) return;
@@ -77,13 +77,13 @@ bot.on("message", message => {
     // };
 });
 
-bot.on("message", message =>{
-    let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
-    let random = Math.floor(Math.random() * 8);
-    if (message.content.startsWith('bot') && message.content.endsWith('?')) {
-        bot.message.send(replies[random]);
-    };
-})
+// bot.on("message", message =>{
+//     let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
+//     let random = Math.floor(Math.random() * 8);
+//     if (message.content.startsWith('bot') && message.content.endsWith('?')) {
+//         bot.message.send(replies[random]);
+//     };
+// })
 
 
 
