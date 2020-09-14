@@ -71,9 +71,9 @@ bot.on("message", message => {
             if (message.author.bot) return;
             else {
                 //message.author.reply('```send Hugs```');           
-                //message.channel.send('```' + `${message.author}` + '.send HUGS```');
+                message.channel.send('```' + `${message.author}` + '.send HUGS```');
                 //message.channel.send('```' + user + '.send HUGS```');
-                message.channel.send('```send HUGS```');
+                //message.channel.send('```send HUGS```');
                 //console.log("all okay");
             }
     
