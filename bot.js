@@ -77,12 +77,28 @@ bot.on("message", message => {
     // };
 });
 
-let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
-let random = Math.floor(Math.random() * 8);
+//let replies = ["yes", "i'm great", "what's up doc?", "definitely", "maybe", "no", "not at all", "don't bug me"];
+var replies = [
+    "Hello there!",
+    "How are you?",
+    "What's up?",
+    "Yes",
+    "I'm great!",
+    "what's up doc?",
+    "definitely",
+    "maybe",
+    "no", 
+    "not at all", 
+    "don't bug me"
+
+]
+var random = Math.floor(Math.random() * replies.length);
+choose = replies[random];
 bot.on("message", message => {
 
     if (message.content.startsWith('bot') && message.content.endsWith('?')) {
-        bot.message.send(replies[random]);
+        //bot.message.send(replies[random]);
+        bot.reply(message, choose);
     };
 })
 
