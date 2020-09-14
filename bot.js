@@ -61,11 +61,11 @@ bot.on("message", message => {
     };
 
     //if(message.content.includes('cry' || 'sad')){
-    if (message.content.includes("cry", "CRY", "sad", "SAD")) {
+    if (message.content.includes(["cry", "CRY", "sad", "SAD"])) {
 
         if (message.author.bot) return;
         else {
-            message.channel.send('```send HUGS```');
+            message.channel.send('```' + `${message.author}` + 'send HUGS```');
         }
 
     };
