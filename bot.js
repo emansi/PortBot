@@ -60,14 +60,11 @@ bot.on("message", message => {
 
     };
 
-    var array = ['cry', 'sad'];
-      if(message.content.includes(array)){
+
+      if(message.content.includes('cry','sad')){
         //if (message.content.includes(["cry", "CRY", "sad", "SAD"])) {
-
-     
-
             //user = message.member;
-            user = message.author.id;
+            user = message.author.name;
 
             //console.log("i'm reading");
             if (message.author.bot) return;
