@@ -4,8 +4,6 @@ const prefix = "!";
 require('dotenv').config();
 
 
-
-
 bot.on("ready", () => {
     console.log("The bot is online");
     bot.user.setActivity("Mansi's Port", { type: 'WATCHING' });
@@ -18,7 +16,6 @@ bot.on("guildMemberAdd", member => {
     const WelcomeChannelId = member.guild.channels.cache.get("740949661451288722");
     WelcomeChannelId.send(`Welcome Aboard Sailor! ${member}`);
 })
-
 
 
 
@@ -48,15 +45,13 @@ bot.on("message", message => {
 
 
     //automatic react
-    if (message.content === 'F') {
+    if (message.content === 'F' || message.content.includes('F')) {
 
         message.react("🇫");
 
     }
 
 })
-
-
 
 
 //automated message
@@ -66,11 +61,9 @@ bot.on("message", message => {
     // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
     // if (message.channel == LetsTalkChannelId){
 
-    
-
     const messageContent = message.content.toLowerCase();
 
-     if (messageContent.includes('😂')) {
+    if (messageContent.includes('😂')) {
 
         message.channel.send('||scam||');
 
@@ -87,14 +80,55 @@ bot.on("message", message => {
 
     };
 
-    if (messageContent.includes('send hugs')) {
+
+    //send gif hugs
+
+    var urls = [
+        "https://media.giphy.com/media/ZBQhoZC0nqknSviPqT/giphy.gif",
+        "https://media.giphy.com/media/lXiRKBj0SAA0EWvbG/giphy.gif",
+        "https://media.giphy.com/media/EvYHHSntaIl5m/giphy.gif",
+        "https://media.giphy.com/media/jTSOClK7HBoMaVn5Hi/giphy.gif",
+        "https://media.giphy.com/media/3o7TKOQ702VRR9PRxm/giphy.gif",
+        "https://media.giphy.com/media/l0HlGu6yGT8X51Gko/giphy.gif",
+        "https://media.giphy.com/media/cMhPpDTQnk0eZDQiZk/giphy.gif"
+
+    ];
+    var chooseGif = Math.floor(Math.random() * urls.length);
+    var hugsStr ="I need a hug";
+    var pattern1 = /\bhug?s{0,}\b/;
+    var tst1 = pattern1.test(hugsStr);
+    //  console.log(tst1);
+    
+
+    //if (messageContent.includes("hugs\s") || messageContent === "hugs"  ) {
+    if (pattern1.test(messageContent) == true) {
 
         var person = message.mentions.members.first();
-        if (!person) return message.channel.send('```Hugs For EVERYONE!!```');
+        //if (!person) return message.channel.send('```Hugs For EVERYONE!!```');
+        if (!person) return message.channel.send({
+            embed: {
+                color: 16777215, description: '```Hugsssss for EVERYONE!!```',
+                image: {
+                    url: urls[chooseGif]
+                }
+            }
+        });
+
 
         if (person.id === message.author.id) return message.channel.send('```Portbot sends you a hug!```')
 
-        message.channel.send('```Hugs Sent to ' + person.displayName + '```');
+        message.channel.send({
+            embed: {
+                color: 16777215, description: '```Hugsssss!!```',
+                image: {
+                    url: urls[chooseGif]
+                }
+            }
+        });
+
+
+
+        // message.channel.send('```Hugs Sent to ' + person.displayName + '```');
 
     };
 
@@ -109,11 +143,15 @@ bot.on("message", message => {
     var portBotReplies = ["Hey There", "What's up Doc?", "Heyyy", "Hiiii", "Talk to you later"];
     var random2 = Math.floor(Math.random() * portBotReplies.length);
 
-    if(messageContent.includes('<@!740950858367238174>')){
+    if (messageContent.includes('<@!740950858367238174>') || messageContent.includes('<@740950858367238174>')) {
         message.channel.send(portBotReplies[random2]);
     };
 
+
+
 });
+
+
 
 
 
