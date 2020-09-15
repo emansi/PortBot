@@ -5,6 +5,7 @@ require('dotenv').config();
 
 
 
+
 bot.on("ready", () => {
     console.log("The bot is online");
     bot.user.setActivity("Mansi's Port", { type: 'WATCHING' });
@@ -44,6 +45,15 @@ bot.on("message", message => {
             break;
 
     }
+
+
+    //automatic react
+    if (message.content === 'F') {
+
+        message.react("🇫");
+
+    }
+
 })
 
 
@@ -56,14 +66,18 @@ bot.on("message", message => {
     // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
     // if (message.channel == LetsTalkChannelId){
 
-    if (message.content.includes('😂')) {
+    
+
+    const messageContent = message.content.toLowerCase();
+
+     if (messageContent.includes('😂')) {
 
         message.channel.send('||scam||');
 
     };
 
-    const messageContent = message.content.toLowerCase();
-    if (messageContent.includes(" cry " || "cry " || " cry") || messageContent.includes(" sad " || "sad " || " sad") || messageContent === 'sad') {
+
+    if (messageContent.includes(" cry " || "cry " || " cry") || messageContent.includes(" sad " || "sad " || " sad") || messageContent === 'sad' || messageContent === 'cry') {
         user = message.member.displayName;
 
         if (message.author.bot) return;
