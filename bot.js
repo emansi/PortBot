@@ -4,11 +4,26 @@ const prefix = "!";
 require('dotenv').config();
 
 
+function getUserFromMentionRegEx(mention) {
+    // The id is the first and only match found by the RegEx.
+    const matches = mention.match(/^<@!?(\d+)>$/);
+
+    // If supplied variable was not a mention, matches will be null instead of an array.
+    if (!matches) return;
+
+    // However the first element in the matches array will be the entire mention, not just the ID,
+    // so use index 1.
+    const id = matches[1];
+
+    return client.users.get(id);
+}
+
 bot.on("ready", () => {
     console.log("The bot is online");
     bot.user.setActivity("Mansi's Port", { type: 'WATCHING' });
     const botNotification = bot.channels.cache.get("740991793650335883");
     botNotification.send(`I'm Online`)
+
 
 });
 
@@ -44,14 +59,11 @@ bot.on("message", message => {
     }
 
 
-    //automatic react
-    if (message.content === 'F' || message.content.includes('F')) {
-
-        message.react("🇫");
-
-    }
 
 })
+
+
+
 
 
 //automated message
@@ -63,12 +75,29 @@ bot.on("message", message => {
 
     const messageContent = message.content.toLowerCase();
 
+    //automatic react
+
     if (messageContent.includes('😂')) {
 
         message.channel.send('||scam||');
 
     };
 
+
+    var fStr = "Fuck";
+    var pattern2 = /\b(f|F)\s{0,}\b/;
+    var tst2 = pattern2.test(fStr);
+    // console.log(tst2);
+
+    // if (message.content === 'F' || message.content.includes('\sF\s')) {
+    if (pattern2.test(messageContent) == true) {
+        return message.react("🇫");
+    };
+
+
+
+
+    //Hugs
 
     if (messageContent.includes(" cry " || "cry " || " cry") || messageContent.includes(" sad " || "sad " || " sad") || messageContent === 'sad' || messageContent === 'cry') {
         user = message.member.displayName;
@@ -79,6 +108,20 @@ bot.on("message", message => {
         }
 
     };
+
+
+    //automatic quote
+    const quotesChannelId = message.guild.channels.cache.get("755780004419338290");
+    var person = message.mentions.members.first();
+    let args = message.content.substring(prefix.length).split(" ");
+    var argsStr = args.slice(1, -1);
+    var quote = argsStr.join(' ');
+
+    switch (args[0]) {
+        case "quote":
+            quotesChannelId.send('"' + quote + '"' + ` - ${person}`);
+    };
+
 
 
     //send gif hugs
@@ -94,11 +137,11 @@ bot.on("message", message => {
 
     ];
     var chooseGif = Math.floor(Math.random() * urls.length);
-    var hugsStr ="I need a hug";
+    var hugsStr = "I need a hug";
     var pattern1 = /\bhug?s{0,}\b/;
     var tst1 = pattern1.test(hugsStr);
     //  console.log(tst1);
-    
+
 
     //if (messageContent.includes("hugs\s") || messageContent === "hugs"  ) {
     if (pattern1.test(messageContent) == true) {
@@ -126,11 +169,11 @@ bot.on("message", message => {
             }
         });
 
-
-
         // message.channel.send('```Hugs Sent to ' + person.displayName + '```');
 
     };
+
+
 
     //conversations with port bot
     var replies = ["Yes", "Definitely", "maybe", "no", "not at all", "don't bug me"];
@@ -147,9 +190,8 @@ bot.on("message", message => {
         message.channel.send(portBotReplies[random2]);
     };
 
-
-
 });
+
 
 
 
