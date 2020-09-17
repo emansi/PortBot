@@ -1,22 +1,9 @@
 const discord = require("discord.js");
 const bot = new discord.Client();
 const prefix = "!";
+// const bot = new discord.Client({ partials: ['MESSAGE', 'REACTION', 'CHANNEL'] });
 require('dotenv').config();
 
-
-function getUserFromMentionRegEx(mention) {
-    // The id is the first and only match found by the RegEx.
-    const matches = mention.match(/^<@!?(\d+)>$/);
-
-    // If supplied variable was not a mention, matches will be null instead of an array.
-    if (!matches) return;
-
-    // However the first element in the matches array will be the entire mention, not just the ID,
-    // so use index 1.
-    const id = matches[1];
-
-    return client.users.get(id);
-}
 
 bot.on("ready", () => {
     console.log("The bot is online");
@@ -69,22 +56,17 @@ bot.on("message", message => {
 //automated message
 bot.on("message", message => {
 
-    // console.log("I'm in the block");
-    // const LetsTalkChannelId = message.guild.channels.cache.get("738709494493610046");
-    // if (message.channel == LetsTalkChannelId){
 
     const messageContent = message.content.toLowerCase();
 
     //automatic react
 
-    if (messageContent.includes('😂')) {
-
-        message.channel.send('||scam||');
-
-    };
+    /* if (messageContent.includes('😂')) {
+    //     message.channel.send('||scam||');
+    };*/
 
 
-    var fStr = "Fuck";
+    var fStr = "Fun";
     var pattern2 = /\b(f|F)\s{0,}\b/;
     var tst2 = pattern2.test(fStr);
     // console.log(tst2);
@@ -95,6 +77,21 @@ bot.on("message", message => {
     };
 
 
+
+    //automatic quote
+    const quotesChannelId = message.guild.channels.cache.get("738709543814430760");
+    var person = message.mentions.members.first();
+    let args = message.content.substring(prefix.length).split(" ");
+    var argsStr = args.slice(1, -1);
+    var quote = argsStr.join(' ');
+    user = message.member.displayName;
+
+    switch (args[0]) {
+        case "quote":
+            quotesChannelId.send('"' + quote + '"' + ` - ${person}` + ' `Quoted by ' + user + '`');
+            message.react("👍");
+            break;
+    };
 
 
     //Hugs
@@ -110,22 +107,7 @@ bot.on("message", message => {
     };
 
 
-    //automatic quote
-    const quotesChannelId = message.guild.channels.cache.get("755780004419338290");
-    var person = message.mentions.members.first();
-    let args = message.content.substring(prefix.length).split(" ");
-    var argsStr = args.slice(1, -1);
-    var quote = argsStr.join(' ');
-
-    switch (args[0]) {
-        case "quote":
-            quotesChannelId.send('"' + quote + '"' + ` - ${person}`);
-    };
-
-
-
     //send gif hugs
-
     var urls = [
         "https://media.giphy.com/media/ZBQhoZC0nqknSviPqT/giphy.gif",
         "https://media.giphy.com/media/lXiRKBj0SAA0EWvbG/giphy.gif",
@@ -192,9 +174,54 @@ bot.on("message", message => {
 
 });
 
+//Deleted message logs
+bot.on('messageDelete', async (message) => {
+    if (message.author.bot) return;
+    let deleteEmbed = new discord.MessageEmbed()
+        .setThumbnail(message.author.avatarURL())
+        .setAuthor("DELETED MESSAGE") //or .setTitle(" ")
+        .setColor("#fc3c3c")
+        .setDescription("<@!" + message.author.id + ">")
+        .addField("Channel", "<#" + message.channel.id + ">", true)
+        //.addField("Author", message.author.tag, true)
+        //.addField("Channel", message.channel, true)
+        .addField("Message", message.content, true)
+        .addField("Deleted at", message.createdAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) + " (IST)")
+        .addField("Message Link", "https://discordapp.com/channels/711634547770654791/" + message.channel.id + "/" + message.id)
+        .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 
+    const deletLogsChannel = message.guild.channels.cache.get("755740585096118282");
+    deletLogsChannel.send(deleteEmbed);
+});
 
+
+//Edited Message Logs
+bot.on("messageUpdate", async (oldMessage, newMessage) => {
+    const editLogs = bot.channels.cache.get('755740585096118282');
+
+    if (oldMessage.author.bot) return;
+    if (oldMessage.content === newMessage.content) {
+        return;
+    }
+
+    let editEmbed = new discord.MessageEmbed()
+        .setThumbnail(oldMessage.author.avatarURL())
+        .setAuthor("MESSAGE EDITED")
+        .setColor("#FFFF00")
+        .setDescription("<@" + oldMessage.author.id + ">")
+        .addField("Channel", "<#" + newMessage.channel.id + ">", true)
+        .addField("Before", oldMessage.content, true)
+        .addField("After", newMessage.content, true)
+        .addField("Sent at", oldMessage.createdAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) + " (IST)", true)
+        .addField("Message Link", "https://discordapp.com/channels/711634547770654791/" + newMessage.channel.id + "/" + newMessage.id)
+        .setTimestamp()
+        .setFooter(`Author ID: ${newMessage.author.id}`);
+
+    if (!editLogs) return;
+    editLogs.send(editEmbed);
+});
 
 
 bot.login(process.env.authToken);
+
