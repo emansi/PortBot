@@ -81,18 +81,35 @@ bot.on("message", message => {
     //automatic quote
     const quotesChannelId = message.guild.channels.cache.get("738709543814430760");
     var person = message.mentions.members.first();
+    user = message.member.displayName;
     let args = message.content.substring(prefix.length).split(" ");
     var argsStr = args.slice(1, -1);
     var quote = argsStr.join(' ');
-    user = message.member.displayName;
 
-    switch (args[0]) {
-        case "quote":
-            quotesChannelId.send('"' + quote + '"' + ` - ${person}` + ' `Quoted by ' + user + '`');
-            message.react("👍");
-            break;
-    };
+    if (message.content.startsWith(prefix)) {
+        switch (args[0]) {
+            case "quote":
+                quotesChannelId.send('"' + quote + '"' + ` - ${person}` + ' `Quoted by ' + user + '`');
+                message.react("👍");
+                break;
+        };
+    }
 
+    if (messageContent.startsWith("> " || ">>> ") && messageContent.endsWith("!quote")) {
+        if (messageContent.includes('\n')) {
+
+            var newMsg = messageContent.replace(`${person.id}`, " ");
+            var msgStr = newMsg.split(" ");
+            var msg = msgStr.slice(1, -1);
+            var msgPrint = msg.join(' ');
+            var finalMsg = msgPrint.replace(/(\r\n|\n|\r)/gm, " ");
+            var tst1 = finalMsg.replace("<@!", " ");
+            var tst2 = tst1.replace(">", " ").trim();
+        }
+        quotesChannelId.send('"' + tst2 + '"' + ` - ${person} ` + '`Quoted by ' + user + '`');
+        // console.log(message);
+        message.react("👍");
+    }
 
     //Hugs
 
@@ -224,4 +241,3 @@ bot.on("messageUpdate", async (oldMessage, newMessage) => {
 
 
 bot.login(process.env.authToken);
-
