@@ -56,6 +56,8 @@ bot.on("message", message => {
 //automated message
 bot.on("message", message => {
 
+    var mentionedUser = message.mentions.members.first();
+
 
     const messageContent = message.content.toLowerCase();
 
@@ -98,7 +100,8 @@ bot.on("message", message => {
 
     if (messageContent.startsWith("> " || ">>> ") && messageContent.endsWith("!quote")) {
         if (messageContent.includes('\n')) {
-            if (messageContent.includes('<@!740950858367238174>') || messageContent.includes('<@740950858367238174>')) return;
+            // if (messageContent.includes('<@!740950858367238174>') || messageContent.includes('<@740950858367238174>')) return;
+            if(mentionedUser.user.bot) return;
 
             var newMsg = messageContent.replace(`${person.id}`, " ");
             var msgStr = newMsg.split(" ");
