@@ -79,7 +79,7 @@ bot.on("message", message => {
 
 
     //automatic quote
-    const quotesChannelId = message.guild.channels.cache.get("738709543814430760");
+    const quotesChannelId = message.guild.channels.cache.get("755780004419338290");
     var person = message.mentions.members.first();
     user = message.member.displayName;
     let args = message.content.substring(prefix.length).split(" ");
@@ -87,6 +87,7 @@ bot.on("message", message => {
     var quote = argsStr.join(' ');
 
     if (message.content.startsWith(prefix)) {
+
         switch (args[0]) {
             case "quote":
                 quotesChannelId.send('"' + quote + '"' + ` - ${person}` + ' `Quoted by ' + user + '`');
@@ -97,6 +98,7 @@ bot.on("message", message => {
 
     if (messageContent.startsWith("> " || ">>> ") && messageContent.endsWith("!quote")) {
         if (messageContent.includes('\n')) {
+            if (messageContent.includes('<@!740950858367238174>') || messageContent.includes('<@740950858367238174>')) return;
 
             var newMsg = messageContent.replace(`${person.id}`, " ");
             var msgStr = newMsg.split(" ");
@@ -184,6 +186,7 @@ bot.on("message", message => {
 
     var portBotReplies = ["Hey There", "What's up Doc?", "Heyyy", "Hiiii", "Talk to you later"];
     var random2 = Math.floor(Math.random() * portBotReplies.length);
+    if (message.author.bot) return;
 
     if (messageContent.includes('<@!740950858367238174>') || messageContent.includes('<@740950858367238174>')) {
         message.channel.send(portBotReplies[random2]);
